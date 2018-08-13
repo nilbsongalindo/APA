@@ -28,7 +28,6 @@ def main():
 	
 	teste = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48]
 
-
 	print('Lista original: %s' % str(teste))
 
 	print('Lista ordenada pelo Insertion Sort: %s '% str(InsertionSort(teste)))
