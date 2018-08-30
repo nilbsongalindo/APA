@@ -1,7 +1,16 @@
-def create_heap(arr, n, i): #heapfy
-	biggest = i #root
-	left = 2 * i + 1 #left_node
-	right = 2 * i + 2 #right_node
+def root(i):
+	return int (i - 1) / 2
+
+def left_child(i):
+	return 2 * i + 1
+
+def right_child(i):
+	return 2 * i + 2
+
+def max_heapfy(arr, n, i): #heapfy
+	biggest = i
+	left = left_child(i) #left_node
+	right = right_child(i) #right_node
 
 	#Checking if right node is greater than root
 	if right < n and arr[biggest] < arr[right]:
@@ -11,24 +20,28 @@ def create_heap(arr, n, i): #heapfy
 	if left < n and arr[biggest] < arr[left]:
 		biggest = left
 
-	#Checking if 'i' is the largest. Then, i call create_heap again to heapfy the root
+	#Checking if 'i' is the largest. T
 	if biggest != i:
 		arr[i], arr[biggest] = arr[biggest], arr[i]
 
-		create_heap(arr, n, biggest)
+		max_heapfy(arr, n, biggest)
+
+
+def build_max_heap(arr):
+	n = len(arr)
+	for i in range(n, -1, -1):
+		max_heapfy(arr, n, i)
+
+
 
 def heap_Sort(arr):
 	n = len(arr)
- 	
-	#Maxheap
-	for i in range(n, -1, -1):
-		create_heap(arr, n, i)
 
+	build_max_heap(arr)
 	#swap the first and the last node, then remove the last one
 	for i in range(n - 1, 0, -1):
 		arr[i], arr[0] = arr[0], arr[i] 
-
-		create_heap(arr, i, 0)
+		max_heapfy(arr, i, 0)
 
 
 def main():
@@ -42,4 +55,14 @@ def main():
 
 if __name__ == '__main__':
 	main()
+
+
+
+
+
+
+
+
+
+
 
