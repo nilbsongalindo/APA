@@ -1,9 +1,6 @@
 from graph import Graph
 import numpy as np
-"""
-OBS: O arquivo de teste 'dij10.txt' continha algum separador que não permitia que eu iterasse sobre ele.
-Copiei tudo que havia no arquivo, colei e outro de mesmo nome e funcionou.
-"""
+
 def main():
 	g = Graph()
 	count = 0
