@@ -50,8 +50,13 @@ class Graph():
 			aux += 1
 
 		print('Kruskal MST: ')
+		x = 0 
 		for (u, v, w) in result:
+			x += w
 			print('%d - %d -> %d'% (u, v, w))
+
+		print("Custo total: %.2f" % x)
+
 
 
 

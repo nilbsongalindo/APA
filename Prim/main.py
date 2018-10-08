@@ -1,8 +1,7 @@
-from graph import Graph
+from prim import Graph
 import numpy as np
 
 def main():
-	g = Graph()
 	count = 0
 	input = open('dij10.txt', 'r')
 	x = input.read()
@@ -36,18 +35,18 @@ def main():
 			if i == j:
 				continue
 			else:
-				g.edge(i, j, matriz[i][j-i-1])
-				g.edge(j, i, matriz[i][j-i-1])
 				matrizFinal[i][j] = matriz[i][j-i-1]
 				matrizFinal[j][i] = matriz[i][j-i-1]
 
 	print('Matriz de adjacencias: \n')
 	print(matrizFinal)
 
+	g = Graph(tamanhoMatriz)
+	g.graph = matrizFinal
+	g.prim()
+
+
 	count -=1
-	g.setVerticies(count)
-	#método para calcular MST
-	g.kruskal()
 
 if __name__ == '__main__':
 	main()
