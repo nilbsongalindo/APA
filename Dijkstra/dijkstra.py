@@ -19,8 +19,13 @@ class Graph():
 		return index_minimo
 
 	def imprime(self, distancia):
+		x = 0
 		for no in range(self.vertices):
 			print(no, '--',distancia[no])
+
+			x += distancia[no]		
+		print('Custo total: %.2f' % x)
+
 
 	def dijkstra(self, origem):
 		distancia = [float('inf')] * self.vertices
